@@ -2,6 +2,11 @@
 
 This document describes the Terraform module that creates multiple Ncloud Target Groups.
 
+Before use `Target Group module`, you need create `VPC module` and `Server module`.
+
+- [VPC module](https://registry.terraform.io/modules/terraform-ncloud-modules/vpc/ncloud/latest)
+- [Server module](https://registry.terraform.io/modules/terraform-ncloud-modules/server/ncloud/latest)
+
 ## Variable Declaration
 
 ### `variable.tf`
@@ -133,7 +138,7 @@ target_groups = [
 
 Map your `Target Group variable name` to a `local Target Group variable`. `Target Group module` are created using `local Target Group variables`. This eliminates the need to change the variable name reference structure in the `Target Group module`.
 
-Also, the `Target Group module` is designed to be used with `VPC module` and `Server Module` together. So the `VPC module` and `Server Module` must also be specified as `local VPC module variable` and `local Server module variable`.
+Also, the `Target Group module` is designed to be used with `VPC module` and `Server module` together. So the `VPC module` and `Server module` must also be specified as `local VPC module variable` and `local Server module variable`.
 
 ``` hcl
 locals {
