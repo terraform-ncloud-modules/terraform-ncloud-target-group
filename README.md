@@ -148,7 +148,7 @@ Then just copy and paste the module declaration below.
 ``` hcl
 
 module "target_groups" {
-  source = "terraform-ncloud-modules/vpc/ncloud"
+  source = "terraform-ncloud-modules/target-group/ncloud"
 
   for_each = { for tg in local.target_groups : tg.name => tg }
 
