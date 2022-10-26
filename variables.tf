@@ -61,6 +61,12 @@ variable "target_no_list" {
   default     = null
 }
 
+variable "target_instance_ids" {
+  description = "(Optional) Required If target_instance_names does not exist. Same with target_no_list. See the description in the readme"
+  type        = list(any)
+  default     = null
+}
+
 variable "target_instance_names" {
   description = "(Optional) Required If target_no_list does not exist. See the description in the readme"
   type        = list(any)

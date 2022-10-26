@@ -43,6 +43,7 @@ data "ncloud_server" "servers" {
 locals {
   tg_attachment = (
     try(length(var.target_no_list) > 0 , false) || 
+    try(length(var.target_instance_ids) > 0 , false) || 
     try(length(var.target_instance_names) > 0 ,false)
   )
 }
@@ -51,5 +52,5 @@ resource "ncloud_lb_target_group_attachment" "target_group_attachment" {
   count = local.tg_attachment ? 1 : 0
 
   target_group_no = ncloud_lb_target_group.target_group.id
-  target_no_list  = coalesce(var.target_no_list, values(data.ncloud_server.servers).*.id)
+  target_no_list  = coalesce(var.target_no_list, coalesce(var.target_instance_ids, values(data.ncloud_server.servers).*.id))
 }
