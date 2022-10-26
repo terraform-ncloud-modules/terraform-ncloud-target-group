@@ -162,7 +162,7 @@ module "target_groups" {
   // you can use "target_instance_names". Then module will find "server_instance_no" from "DataSource: ncloud_server"
   target_instance_names = each.value.target_instance_names
   // or "target_instance_ids" instead
-  target_instance_ids   = [for instance_name in each.value.target_instance_names : module.servers[instance_name].server.id]
+  # target_instance_ids   = [for instance_name in each.value.target_instance_names : module.servers[instance_name].server.id]
 
   health_check          = each.value.health_check
 }
